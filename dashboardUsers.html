@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Feather Icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Dashboard Users</title>
+</head>
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar-dashboard">
+        <a href="" id="hamburger-menu-dashboard">
+            <i data-feather="menu"></i>
+        </a>
+        <a href="#" class="navbar-logo">CodeBlog</a>
+        <div class="navbar-nav-dashboard">
+            <a href="/news">News</a>
+            <a href="/user">User</a>
+        </div>
+        <a href="/logout" class="logout">Logout</a>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Section Dashboard Start -->
+    <section class="dashboard" id="dashboard">
+        <h1>Users Table</h1>
+        <a class="create" href="">Create A New User</a>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 5%;">No</th>
+                    <th style="width: 10%;">Id</th>
+                    <th style="width: 20%;">Name</th>
+                    <th style="width: 15%;">Password</th>
+                    <th style="width: 20%;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-cell="No">1</td>
+                    <td data-cell="Id">12111213</td>
+                    <td data-cell="Name">Michael</td>
+                    <td data-cell="Password">*********</td>
+                    <td data-cell="Action" class="down">
+                        <a class="update" href="/update">Update</a>
+                        <a class="delete" href="/delete">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <!-- Section Dashboard End -->
+
+    <!-- Feather -->
+    <script>
+        feather.replace()
+    </script>
+
+    <!-- Script JS -->
+    <script>
+    // Kalau di klik diluar itu, maka akan ketutup sendiri navigationnya
+    document.addEventListener("click", function(event) {
+        if(!hamburgerMenu.contains(event.target) && !navbarNav.contains(event.target)) {
+            navbarNav.classList.remove("active");
+        }
+    });
+
+    // Navigation Dashboard
+    const navbarNavDashboard = document.querySelector(".navbar-nav-dashboard");
+    const hamburgerMenuDashboard = document.getElementById("hamburger-menu-dashboard");
+
+    hamburgerMenuDashboard.addEventListener("click", function(event) { 
+        event.preventDefault();
+        navbarNavDashboard.classList.toggle("active");
+    });
+    </script>
+</body>
+</html>
