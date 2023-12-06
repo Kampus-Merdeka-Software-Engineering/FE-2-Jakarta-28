@@ -23,10 +23,10 @@
     <nav class="navbar">
         <a href="#" class="navbar-logo">CodeBlog</a>
         <div class="navbar-nav">
-            <a href="/">Home</a>
-            <a href="/blog">Blog</a>
-            <a href="/about">About</a>
-            <a href="/post">Post</a>
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="post.html">Post</a>
         </div>
         <a href="" id="hamburger-menu">
             <i data-feather="menu"></i>
@@ -40,7 +40,7 @@
             <h1>Send your Blog to Us</h1>
             <p>Please fill the form below to share your Programming Insight With Our Community </p>
         </div>
-        <form action="" class="content">
+        <form class="content" id="send-email">
             <label for="full-name">Full Name</label>
             <input type="text" placeholder="Michael" id="full-name" name="full-name" required>
             <label for="email">Email Address</label>
@@ -50,8 +50,8 @@
             <label for="title">Title</label>
             <input type="text" placeholder="Laravel" id="title" name="title" required>
             <label for="image">Image</label>
-            <img id="imagePreview" style="width: auto; height: 4rem;">
-            <input type="file" id="image" name="image" required>
+            <img id="imagePreview">
+            <input type="file" id="image" name="image" onchange="previewImage()" accept="image" required>
             <label for="content">Content :</label>
             <textarea name="content" placeholder="Laravel is one of the easy framework that can be learn by beginner" id="content" cols="30" rows="20" ></textarea>
             <div class="notes">
@@ -112,5 +112,59 @@
 
     <!-- Script JS -->
     <script src="js/script.js"></script>
+
+    <!-- Preview Image -->
+    <script>
+        function previewImage() {
+            let fileInput = document.getElementById('image');
+            let imagePreview = document.getElementById('imagePreview');
+
+            // Kita akan hapus preview sebelumnya jika ada
+            imagePreview.src = '';
+
+            // Kemudian kita dapat pastikan sudah terpilih 1 file
+            if(fileInput.files.length > 0) {
+                let file = fileInput.files[0];
+                
+                // Pastikan file yang diupload adalah gambar
+                if(file.type.match(/^image\//)) {
+                    let reader = new FileReader();
+
+                    reader.onload = (event) => {
+                        // Kemudian kita dapat update source attributenya
+                        imagePreview.src = event.target.result;
+                        imagePreview.style.display = "inline-block";
+                    };
+
+                    // Kemudian kita dapat baca file tersebut sebagai data url
+                    reader.readAsDataURL(file);
+                } else {
+                    alert("Only picture file format that are allowed");
+                }
+            }
+        }
+    </script>
+
+    <!-- Convert Files -->
+    <!-- <script>
+        function convertFile() {
+            let reader;
+            let dataUri;
+            let file = document.getElementById("image").files[document.getElementById("fileInput").files.length-1];
+            reader = new FileReader();
+            reader.readAsBinaryString(file);
+            reader.onload() = function {
+                dataUri = "data: "+ file.type + ";based64," + btoa(reader.result);
+            }
+            reader.onloadend = function () {
+                allconvertedFiles.push({name: file.name, data: dataUri});
+            }
+        }
+    </script> -->
+
+
+    <!-- Send Email -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="js/sendEmail.js"></script>
 </body>
 </html>

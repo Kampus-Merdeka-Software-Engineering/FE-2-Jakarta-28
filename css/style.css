@@ -434,6 +434,13 @@ body {
     border-radius: 5px;
 }
 
+.post #imagePreview {
+    display: none;
+    width: 60%;
+    border-radius: none;
+    padding: 1rem 0;
+}
+
 /* Single Post */
 .single-post .judul p {
     font-size: 1.1rem;
@@ -804,7 +811,7 @@ footer .row .contact-us .content a p {
 }
 
 /* Khusus Dashboard */
-@media(max-width: 870px) {
+@media(max-width: 1320px) {
     .dashboard table{
         border-collapse: separate;
         border: none;
