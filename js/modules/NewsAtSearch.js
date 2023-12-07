@@ -11,11 +11,10 @@ const formatDate = (originalDate) => {
 
 // Add event listener search area
 const searchForm = document.getElementById("search-area");
-const keyword = document.getElementById("search-text");
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const keyword2 = keyword.value;
-    filteredNews(keyword2);
+    const keyword = document.getElementById("search-text").value;
+    filteredNews(keyword);
 })
 
 // Search function
