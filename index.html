@@ -23,7 +23,7 @@
     <nav class="navbar">
         <a href="#" class="navbar-logo">CodeBlog</a>
         <div class="navbar-nav">
-            <a href="index.html">Home</a>
+            <a class="active" href="index.html">Home</a>
             <a href="blog.html">Blog</a>
             <a href="about.html">About</a>
             <a href="post.html">Post</a>
@@ -39,7 +39,7 @@
         <div class="content">
             <h1>Unleash The Power <br> Of The Code</h1>
             <p>Dive into the world of Programming <br> through reading our blogs</p>
-            <a href="/blog">Explore</a>
+            <a href="news.html">Explore</a>
         </div>
         <img src="img/Hero.png" alt="">
     </section>
@@ -51,40 +51,8 @@
             <h1>Latest Post</h1>
             <p>Stay tuned for our latest insights, updates, and tutorial! You can discover <br>our latest post in this world of programming</p>
         </div>
-        <div class="row">
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
+        <div class="row" id="latest-post-row">
+            <!-- Insert Fetch Data API -->
         </div>
     </section>
     <!-- Section Latest Post End -->
@@ -177,5 +145,15 @@
 
     <!-- Script JS -->
     <script src="js/script.js"></script>
+
+    <!-- Redirect to single post -->
+    <script>
+        const redirectToSinglePost = (slug) => {
+            window.location.href = `singleBlog.html?slug=${slug}`
+        };
+    </script>
+
+    <!-- Fetch data API -->
+    <script type="module" src="js/modules/NewsAtHome.js"></script>
 </body>
 </html>

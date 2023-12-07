@@ -24,7 +24,7 @@
         <a href="#" class="navbar-logo">CodeBlog</a>
         <div class="navbar-nav">
             <a href="index.html">Home</a>
-            <a href="blog.html">Blog</a>
+            <a class="active" href="blog.html">Blog</a>
             <a href="about.html">About</a>
             <a href="post.html">Post</a>
         </div>
@@ -38,78 +38,13 @@
     <section class="blog" id="blog">
         <div class="judul">
             <h1>Search</h1>
-            <form action="">
+            <form id="search-area">
                 <input type="text" placeholder="Search here..." id="search-text" name="search-text">
                 <button type="submit">Search</button>
             </form>
         </div>
-        <div class="row">
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post-card">
-                <div class="image-post">
-                    <img src="img/ImagePost.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Parallel Testing in Laravel</h3>
-                    <p class="subtext">Lev Yasin - 28 Jan 2022</p>
-                    <p class="post-content">Start with Laravel 8 that has pre-built function, Authentication, and built-in artisan...</p>
-                    <a href="" class="read-more">Read More</a>
-                </div>
-            </div>
+        <div class="row" id="blog-row-container">
+            <!-- Insert Fetch Data API -->
         </div>
     </section>
     <!-- Section Blog End -->
@@ -163,5 +98,15 @@
 
     <!-- Script JS -->
     <script src="js/script.js"></script>
+
+    <!-- Redirect to single post -->
+    <script>
+        const redirectToSinglePost = (slug) => {
+            window.location.href = `singleBlog.html?slug=${slug}`
+        };
+    </script>
+
+    <!-- Fetch data API -->
+    <script type="module" src="js/modules/NewsAtSearch.js"></script>
 </body>
 </html>

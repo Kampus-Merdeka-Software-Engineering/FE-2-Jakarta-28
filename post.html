@@ -26,7 +26,7 @@
             <a href="index.html">Home</a>
             <a href="blog.html">Blog</a>
             <a href="about.html">About</a>
-            <a href="post.html">Post</a>
+            <a class="active" href="post.html">Post</a>
         </div>
         <a href="" id="hamburger-menu">
             <i data-feather="menu"></i>
@@ -144,24 +144,6 @@
             }
         }
     </script>
-
-    <!-- Convert Files -->
-    <!-- <script>
-        function convertFile() {
-            let reader;
-            let dataUri;
-            let file = document.getElementById("image").files[document.getElementById("fileInput").files.length-1];
-            reader = new FileReader();
-            reader.readAsBinaryString(file);
-            reader.onload() = function {
-                dataUri = "data: "+ file.type + ";based64," + btoa(reader.result);
-            }
-            reader.onloadend = function () {
-                allconvertedFiles.push({name: file.name, data: dataUri});
-            }
-        }
-    </script> -->
-
 
     <!-- Send Email -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>

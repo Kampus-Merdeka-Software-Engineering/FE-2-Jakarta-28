@@ -55,7 +55,8 @@ body {
 }
 
 .navbar .navbar-nav a:hover,
-.navbar-dashboard .navbar-nav-dashboard a:hover{
+.navbar-dashboard .navbar-nav-dashboard a:hover,
+.navbar .navbar-nav a.active {
     color: var(--primary);
 }
 
@@ -218,7 +219,7 @@ body {
 .blog .row .post-card .image-post img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     object-position: center;
 }
 
