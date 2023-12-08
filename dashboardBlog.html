@@ -26,8 +26,8 @@
         </a>
         <a href="#" class="navbar-logo">CodeBlog</a>
         <div class="navbar-nav-dashboard">
-            <a href="/news">News</a>
-            <a href="/user">User</a>
+            <a href="dashboardBlog.html">Blogs</a>
+            <a href="dashboardUsers.html">User</a>
         </div>
         <a href="/logout" class="logout">Logout</a>
     </nav>
@@ -35,9 +35,9 @@
 
     <!-- Section Dashboard Start -->
     <section class="dashboard" id="dashboard">
-        <h1>News List Table</h1>
-        <a class="create" href="">Create A New Blog</a>
-        <table>
+        <h1>Blog List Table</h1>
+        <a class="create" href="dashboardCreateNewBlog.html">Create A New Blog</a>
+        <table id="blog-data">
             <thead>
                 <tr>
                     <th style="width: 5%;">No</th>
@@ -50,20 +50,8 @@
                     <th style="width: 20%;">Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td data-cell="No">1</td>
-                    <td data-cell="Title">Laravel 8</td>
-                    <td data-cell="Slug">laravel-8</td>
-                    <td data-cell="Image">Image.jpg</td>
-                    <td data-cell="Author">Michael Sudirgo</td>
-                    <td data-cell="Published Date">28-10-2023</td>
-                    <td data-cell="Content" class="down">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
-                    <td data-cell="Action" class="down">
-                        <a class="update" href="/update">Update</a>
-                        <a class="delete" href="/delete">Delete</a>
-                    </td>
-                </tr>
+            <tbody id="blog-data-row">
+                <!-- Fetch Data -->
             </tbody>
         </table>
     </section>
@@ -76,13 +64,6 @@
 
     <!-- Script JS -->
     <script>
-    // Kalau di klik diluar itu, maka akan ketutup sendiri navigationnya
-    document.addEventListener("click", function(event) {
-        if(!hamburgerMenu.contains(event.target) && !navbarNav.contains(event.target)) {
-            navbarNav.classList.remove("active");
-        }
-    });
-
     // Navigation Dashboard
     const navbarNavDashboard = document.querySelector(".navbar-nav-dashboard");
     const hamburgerMenuDashboard = document.getElementById("hamburger-menu-dashboard");
@@ -90,10 +71,50 @@
     hamburgerMenuDashboard.addEventListener("click", function(event) { 
         event.preventDefault();
         navbarNavDashboard.classList.toggle("active");
+
+    });
+
+    // Kalau di klik diluar itu, maka akan ketutup sendiri navigationnya
+    document.addEventListener("click", function(event) {
+        if(!hamburgerMenuDashboard.contains(event.target) && !navbarNavDashboard.contains(event.target)) {
+            navbarNavDashboard.classList.remove("active");
+        }
     });
     </script>
 
     <!-- Middleware before accessing this page -->
-    <script type="module" src="js/modules/AuthCheck.js"></script>
+    <!-- <script type="module" src="js/modules/AuthCheck.js"></script> -->
+
+    <!-- Fetch Data Blog -->
+    <script type="module" src="js/modules/DashboardBlog.js"></script>
+
+    <!-- Redirect -->
+    <script>
+        const redirectToUpdateSingleNews = (slug) => {
+            window.location.href = `dashboardUpdateBlog.html?slug=${slug}`;
+        };
+    </script>
+
+    <!-- Ini untuk menghapus data -->
+    <script>
+        const deleteBlog = async (slug) => {
+            if(confirm("Are you sure you want to delete " + slug) === true) {
+                try  {
+                    const response = await fetch(`http://localhost:5000/blogs/${slug}`, {
+                        method: "DELETE",
+                    });
+
+                    if(response.status === 200) {
+                        console.log(response);
+                        alert("You have successfully deleted" + slug);
+                        }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        };
+    </script>
+
+
 </body>
 </html>

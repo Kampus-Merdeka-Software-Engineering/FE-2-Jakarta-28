@@ -5,7 +5,7 @@ import formatDate from "../constant/FormatDate.js";
 // Ini untuk return data 
 const setNewsData = async () => {
     const news = await loadAllNews();
-    console.log({news});
+    // console.log({news});
 
     const latestPostContainer = document.getElementById("latest-post-row");
 

@@ -435,7 +435,8 @@ body {
     border-radius: 5px;
 }
 
-.post #imagePreview {
+.post #imagePreview,
+.dashboard-update .content #imagePreview {
     display: none;
     width: 60%;
     border-radius: none;
@@ -586,6 +587,8 @@ body {
     padding: 1rem;
     font-size: 1.2rem;
     font-weight: 500;
+    white-space: wrap;
+    word-wrap: break-word;
 }
 
 .dashboard table td .update {
@@ -610,6 +613,54 @@ body {
 .dashboard table td .delete:hover {
     background-color: var(--bg);
     color: red;
+}
+
+/* Special for dashboard Blog */
+.dashboard table#blog-data{
+    border-collapse: separate;
+    border: none;
+}
+
+.dashboard table#blog-data td:first-child {
+    padding-bottom: 2rem;
+}
+
+.dashboard table#blog-data td:last-child {
+    padding-bottom: 2rem;
+}
+
+.dashboard table#blog-data thead {
+    display: none;
+}
+
+.dashboard table#blog-data tbody, 
+.dashboard table#blog-data tbody tr, 
+.dashboard table#blog-data tbody td {
+    display: block;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+.dashboard table#blog-data tr {
+    margin-bottom: 3rem;
+}
+
+.dashboard table#blog-data td::before {
+    content: attr(data-cell) " : ";
+    font-size: 1.4rem;
+    font-weight: 600;
+    float: left;
+}
+
+.dashboard table#blog-data .down::before {
+    padding-bottom: 1rem;
+}
+
+.dashboard table#blog-data td.down {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 /* Dashboard Update */

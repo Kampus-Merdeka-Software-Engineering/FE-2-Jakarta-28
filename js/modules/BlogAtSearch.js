@@ -20,8 +20,8 @@ searchForm.addEventListener("submit", (event) => {
 // Search function
 const filteredNews = async(keyword) => {
     const news = await loadAllNews();
-    console.log({news});
-    console.log(keyword);
+    // console.log({news});
+    // console.log(keyword);
     const latestPostContainer = document.getElementById("blog-row-container");
     latestPostContainer.innerHTML = "";
     let newsFound = false;

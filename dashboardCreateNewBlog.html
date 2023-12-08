@@ -16,7 +16,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Dashboard Create New News</title>
+    <title>Dashboard Create New Blog</title>
 </head>
 <body>
     <!-- Navbar Start -->
@@ -26,8 +26,8 @@
         </a>
         <a href="#" class="navbar-logo">CodeBlog</a>
         <div class="navbar-nav-dashboard">
-            <a href="/news">News</a>
-            <a href="/user">User</a>
+            <a href="dashboardBlog.html">Blogs</a>
+            <a href="dashboardUsers.html">User</a>
         </div>
         <a href="/logout" class="logout">Logout</a>
     </nav>
@@ -35,20 +35,22 @@
 
     <!-- Section Dashboard Start -->
     <section class="dashboard-update" id="dashboard-update">
-        <h1>Create a New News</h1>
-        <form action="" class="content">
-            <label for="Title">Title</label>
+        <h1>Create a New Blog</h1>
+        <form action="" class="content" id="createForm">
+            <label for="title">Title</label>
             <input type="text" id="title" name="title" required>
-            <label for="Author">Author</label>
+            <label for="slug">Slug</label>
+            <input type="text" id="slug" name="slug" required>
+            <label for="author">Author</label>
             <input type="text" id="author" name="author" required>
-            <label for="published-date">Published Date</label>
-            <input type="date" id="published-date" name="published-date" required>
+            <label for="published_date">Published Date</label>
+            <input type="date" id="published_date" name="published-date" required>
             <label for="image">Image</label>
-            <img id="imagePreview" style="width: auto; height: 4rem;">
-            <input type="file" id="image" name="image" required>
+            <img id="imagePreview">
+            <input type="file" id="image" onchange="previewImage()" name="image" required>
             <label for="content">Content :</label>
-            <textarea name="content" id="content" cols="30" rows="20" ></textarea>
-            <button type="submit">Create New News</button>
+            <textarea name="content" id="content" cols="30" rows="20" required></textarea>
+            <button type="submit">Create New Blog</button>
         </form>
     </section>
     <!-- Section Dashboard End -->
@@ -60,13 +62,6 @@
 
     <!-- Script JS -->
     <script>
-    // Kalau di klik diluar itu, maka akan ketutup sendiri navigationnya
-    document.addEventListener("click", function(event) {
-        if(!hamburgerMenu.contains(event.target) && !navbarNav.contains(event.target)) {
-            navbarNav.classList.remove("active");
-        }
-    });
-
     // Navigation Dashboard
     const navbarNavDashboard = document.querySelector(".navbar-nav-dashboard");
     const hamburgerMenuDashboard = document.getElementById("hamburger-menu-dashboard");
@@ -74,7 +69,50 @@
     hamburgerMenuDashboard.addEventListener("click", function(event) { 
         event.preventDefault();
         navbarNavDashboard.classList.toggle("active");
+
+    });
+
+    // Kalau di klik diluar itu, maka akan ketutup sendiri navigationnya
+    document.addEventListener("click", function(event) {
+        if(!hamburgerMenuDashboard.contains(event.target) && !navbarNavDashboard.contains(event.target)) {
+            navbarNavDashboard.classList.remove("active");
+        }
     });
     </script>
+
+    <!-- Preview Image -->
+    <script>
+        function previewImage() {
+            let fileInput = document.getElementById('image');
+            let imagePreview = document.getElementById('imagePreview');
+
+            // Kita akan hapus preview sebelumnya jika ada
+            imagePreview.src = '';
+
+            // Kemudian kita dapat pastikan sudah terpilih 1 file
+            if(fileInput.files.length > 0) {
+                let file = fileInput.files[0];
+                
+                // Pastikan file yang diupload adalah gambar
+                if(file.type.match(/^image\//)) {
+                    let reader = new FileReader();
+
+                    reader.onload = (event) => {
+                        // Kemudian kita dapat update source attributenya
+                        imagePreview.src = event.target.result;
+                        imagePreview.style.display = "inline-block";
+                    };
+
+                    // Kemudian kita dapat baca file tersebut sebagai data url
+                    reader.readAsDataURL(file);
+                } else {
+                    alert("Only picture file format that are allowed");
+                }
+            }
+        }
+    </script>
+
+    <!-- Post new blog -->
+    <script type="module" src="js/modules/DashboardCreateBlog.js"></script>
 </body>
 </html>

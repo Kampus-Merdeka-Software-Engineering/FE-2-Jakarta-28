@@ -26,8 +26,8 @@
         </a>
         <a href="#" class="navbar-logo">CodeBlog</a>
         <div class="navbar-nav-dashboard">
-            <a href="/news">News</a>
-            <a href="/user">User</a>
+            <a href="dashboardBlog.html">Blogs</a>
+            <a href="dashboardUsers.html">User</a>
         </div>
         <a href="/logout" class="logout">Logout</a>
     </nav>
@@ -36,7 +36,7 @@
     <!-- Section Dashboard Start -->
     <section class="dashboard" id="dashboard">
         <h1>Users Table</h1>
-        <a class="create" href="">Create A New User</a>
+        <a class="create" href="dashboardCreateNewUser.html">Create A New User</a>
         <table>
             <thead>
                 <tr>
@@ -70,13 +70,6 @@
 
     <!-- Script JS -->
     <script>
-    // Kalau di klik diluar itu, maka akan ketutup sendiri navigationnya
-    document.addEventListener("click", function(event) {
-        if(!hamburgerMenu.contains(event.target) && !navbarNav.contains(event.target)) {
-            navbarNav.classList.remove("active");
-        }
-    });
-
     // Navigation Dashboard
     const navbarNavDashboard = document.querySelector(".navbar-nav-dashboard");
     const hamburgerMenuDashboard = document.getElementById("hamburger-menu-dashboard");
@@ -84,6 +77,14 @@
     hamburgerMenuDashboard.addEventListener("click", function(event) { 
         event.preventDefault();
         navbarNavDashboard.classList.toggle("active");
+
+    });
+
+    // Kalau di klik diluar itu, maka akan ketutup sendiri navigationnya
+    document.addEventListener("click", function(event) {
+        if(!hamburgerMenuDashboard.contains(event.target) && !navbarNavDashboard.contains(event.target)) {
+            navbarNavDashboard.classList.remove("active");
+        }
     });
     </script>
 </body>
