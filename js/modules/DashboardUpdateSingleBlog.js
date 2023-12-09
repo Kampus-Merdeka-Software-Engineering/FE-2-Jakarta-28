@@ -18,7 +18,7 @@ const loadUpdateNewsBySlug = async() => {
     document.getElementById("slug").value = response.slug;
     document.getElementById("old-slug").value = response.slug;
     document.getElementById("published_date").value = formattedDate;
-    document.getElementById("content").innerText = response.content;
+    document.getElementById("content").innerHTML = response.content;
     document.getElementById("imagePreview").src = response.url;
     document.getElementById("imagePreview").style.display = "inline-block";
 }

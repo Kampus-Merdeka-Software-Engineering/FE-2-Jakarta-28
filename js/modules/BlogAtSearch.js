@@ -71,6 +71,7 @@ const setNewsData = async () => {
     // Bedanya dengan news at home adalah disini akan dirender semuanya
     news.forEach( (singleNews) => {
         const formatedDate = formatDate(singleNews.published_date);
+        const contentSlice = singleNews.content.slice(0, 120) + "...";
         latestPostContainer.innerHTML += `
             <div class="post-card">
                 <div class="image-post">
@@ -79,7 +80,7 @@ const setNewsData = async () => {
                 <div class="content">
                     <h3>${singleNews.title}</h3>
                     <p class="subtext">${singleNews.author} - ${formatedDate}</p>
-                    <p class="post-content">${singleNews.content}</p>
+                    <p class="post-content">${contentSlice}</p>
                     <a onclick="redirectToSinglePost('${singleNews.slug}')"" class="read-more">Read More</a>
                 </div>
             </div>

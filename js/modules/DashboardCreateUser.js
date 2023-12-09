@@ -30,9 +30,9 @@ const createNewUser = async (formData) => {
     try {
         const response = await fetch(apiRoutes.dashboardUsers, {
             method: "POST",
-            headers: {
-                'x-access-token': localStorage.getItem("accessToken")
-            },
+            // headers: {
+            //     'x-access-token': localStorage.getItem("accessToken")
+            // },
             body: formData
         });
 
