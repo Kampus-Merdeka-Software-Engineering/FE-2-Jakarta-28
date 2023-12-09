@@ -1,4 +1,4 @@
-import { loadNewsBySlug } from "../api/fetchNews.js";
+import { loadDashboardNewsBySlug } from "../api/fetchNews.js";
 import apiRoutes from "../constant/ApiRoutes.js";
 import formatDateInput from "../constant/FormatDateInput.js";
 
@@ -7,10 +7,10 @@ const urlSearchParams = new URLSearchParams(query);
 const slug = urlSearchParams.get("slug");
 
 const loadUpdateNewsBySlug = async() => {
-    const response = await loadNewsBySlug(slug);
-    console.log(response);
+    const response = await loadDashboardNewsBySlug(slug);
+    // console.log(response);
     const formattedDate = formatDateInput(response.published_date);
-    console.log(formattedDate);
+    // console.log(formattedDate);
 
     document.getElementById("heading").innerText = "Update " + response.title; 
     document.getElementById("title").value = response.title;
@@ -19,7 +19,8 @@ const loadUpdateNewsBySlug = async() => {
     document.getElementById("old-slug").value = response.slug;
     document.getElementById("published_date").value = formattedDate;
     document.getElementById("content").innerText = response.content;
-    document.getElementById("imagePreview").src = response.url;document.getElementById("imagePreview").style.display = "inline-block";
+    document.getElementById("imagePreview").src = response.url;
+    document.getElementById("imagePreview").style.display = "inline-block";
 }
 
 loadUpdateNewsBySlug();
@@ -52,8 +53,11 @@ dashboardUpdateContainer.addEventListener("submit", (event) => {
 const updateDatatoDatabse = async(formData, oldSlug) => {
     console.log(oldSlug, formData);
     try {
-        const response = await fetch(apiRoutes.newsBySlug(oldSlug), {
+        const response = await fetch(apiRoutes.dashboardNewsBySlug(oldSlug), {
             method: "PATCH", 
+            headers: {
+                'x-access-token': localStorage.getItem("accessToken")
+            },
             body: formData
         });
         console.log(response);

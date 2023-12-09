@@ -36,12 +36,12 @@
 
     <!-- Section Hero Start -->
     <section class="hero" id="hero">
-        <div class="content">
+        <div class="content pKiri">
             <h1>Unleash The Power <br> Of The Code</h1>
             <p>Dive into the world of Programming <br> through reading our blogs</p>
             <a href="news.html">Explore</a>
         </div>
-        <img src="img/Hero.png" alt="">
+        <img class="pKanan" src="img/Hero.png" alt="">
     </section>
     <!-- Section Hero End -->
 
@@ -63,7 +63,7 @@
             <h1>Why Choose Us?</h1>
             <p>Choose Us to get Expert Insights in the world of Programming</p>
         </div>
-        <div class="row">
+        <div class="row pBawah-choose-us">
             <div class="why-card">
                 <img src="icon/Stay Informed.png" alt="">
                 <h3>Stay Informed</h3>
@@ -85,11 +85,11 @@
 
     <!-- Section Join Us start -->
     <section class="join-us" id="join-us">
-        <div class="judul">
+        <div class="judul pKiri-join-us">
             <h1>Join 500,000+ Subscriber</h1>
             <p>Join Us and Get Exclusive Access to our community from around the world and Limited Merchandise</p>
         </div>
-        <form action="" class="content">
+        <form class="content pKanan-join-us" id="subscribe-form">
             <input type="email" id="email" placeholder="Enter your email address here" required>
             <button type="submit">Subscribe</button>
         </form>
@@ -124,9 +124,9 @@
                         <img src="icon/Instagram.png" alt="">
                         <p>code.blog</p>
                     </a>
-                    <a href="mailto:codeblog@gmail.com">
+                    <a href="mailto:codeblogwebsite23@gmail.com">
                         <img src="icon/Email.png" alt="">
-                        <p>codeblog@gmail.com</p>
+                        <p>codeblogwebsite23@gmail.com</p>
                     </a>
                     <a href="">
                         <img src="icon/Whatsapp.png" alt="">
@@ -143,8 +143,8 @@
         feather.replace()
     </script>
 
-    <!-- Script JS -->
-    <script src="js/script.js"></script>
+    <!-- Hamburger Menu -->
+    <script src="js/hamburgerMenu/HamburgerMenu.js"></script>
 
     <!-- Redirect to single post -->
     <script>
@@ -155,5 +155,12 @@
 
     <!-- Fetch data API -->
     <script type="module" src="js/modules/BlogAtHome.js"></script>
+
+    <!-- Sending subscriber email -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="js/modules/SendingSubscriberEmail.js"></script>
+
+    <!-- Animation Parallax-->
+    <script src="js/AnimationParallax/SimpleAnimation.js"></script>
 </body>
 </html>

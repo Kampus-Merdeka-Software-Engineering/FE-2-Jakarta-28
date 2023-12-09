@@ -1,10 +1,13 @@
 const baseApiUrl = "http://localhost:5000";
 
 const apiRoutes = {
-    authenticationCheck : `${baseApiUrl}/me`,
     login : `${baseApiUrl}/login`,
     news : `${baseApiUrl}/blogs`,
-    newsBySlug : (slug) => `${baseApiUrl}/blogs/${slug}`
+    newsBySlug : (slug) => `${baseApiUrl}/blogs/${slug}`,
+    dashboardNews : `${baseApiUrl}/dashboardBlogs`,
+    dashboardNewsBySlug : (slug) => `${baseApiUrl}/dashboardBlogs/${slug}`,
+    dashboardUsers : `${baseApiUrl}/users`,
+    dashboardUserById : (id) => `${baseApiUrl}/users/${id}`
 };
 
 export default apiRoutes;

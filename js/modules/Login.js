@@ -22,6 +22,12 @@ const Login = async(email, password) => {
                 password: password
             }),
         });
+
+        const responseJson = await response.json();
+        const jwtToken = responseJson.jwtToken;
+        console.log({responseJson});
+
+        localStorage.setItem("accessToken", jwtToken);
         
         if(response.status === 200) {
             window.location.href = `dashboardBlog.html`;

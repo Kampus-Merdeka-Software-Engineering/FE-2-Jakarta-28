@@ -1,8 +1,8 @@
-import {loadAllNews} from "../api/fetchNews.js";
+import {loadAllDashboardNews} from "../api/fetchNews.js";
 
 const loadNewsAtTable = async () => {
-    const news = await loadAllNews();
-    console.log({news});
+    const news = await loadAllDashboardNews();
+    // console.log({news});
 
     const blogDataContainer = document.getElementById("blog-data-row");
     

@@ -1,13 +1,20 @@
 import apiRoutes from "../constant/ApiRoutes.js";
 
 // ini untuk fetch di front end user
-export const loadAllNews = async() => {
+export const loadAllUsers= async() => {
     try {
-        const response = await fetch(apiRoutes.news, {
+        const response = await fetch(apiRoutes.dashboardUsers, {
             method: "GET",
+            // ini untuk fetch url tokennya
+            headers: {
+                'x-access-token': localStorage.getItem("accessToken")
+            }
         });
     
         const responseJson = await response.json();
+        if(response.status === 401) {
+            return (window.location.href = "login.html");
+        }
     
         return responseJson;
     } catch (error) {
@@ -15,47 +22,10 @@ export const loadAllNews = async() => {
     }
 };
 
-export const loadNewsBySlug = async(slug) => {
+export const loadUserById = async(id) => {
     try {
-        const response = await fetch(apiRoutes.newsBySlug(slug), {
+        const response = await fetch(apiRoutes.dashboardUserById(id), {
             method: "GET",
-        });
-    
-        const reponseJson = await response.json();
-    
-        return reponseJson;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-// ini untuk fetch di dashboard
-export const loadAllDashboardNews = async() => {
-    try {
-        const response = await fetch(apiRoutes.dashboardNews, {
-            method: "GET",
-            // ini untuk fetch url tokennya
-            headers: {
-                'x-access-token': localStorage.getItem("accessToken")
-            }
-        });
-
-        const responseJson = await response.json();
-        if(response.status === 401) {
-            return (window.location.href = "login.html");
-        }
-
-        return responseJson;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-export const loadDashboardNewsBySlug = async(slug) => {
-    try {
-        const response = await fetch(apiRoutes.dashboardNewsBySlug(slug), {
-            method: "GET", 
             // ini untuk fetch url tokennya
             headers: {
                 'x-access-token': localStorage.getItem("accessToken")
@@ -71,4 +41,4 @@ export const loadDashboardNewsBySlug = async(slug) => {
     } catch (error) {
         console.log(error);
     }
-}
+};

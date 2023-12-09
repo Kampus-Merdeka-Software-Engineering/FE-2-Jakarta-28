@@ -29,7 +29,7 @@
             <a href="dashboardBlog.html">Blogs</a>
             <a href="dashboardUsers.html">User</a>
         </div>
-        <a href="/logout" class="logout">Logout</a>
+        <a id="logout" class="logout">Logout</a>
     </nav>
     <!-- Navbar End -->
 
@@ -61,25 +61,8 @@
         feather.replace()
     </script>
 
-    <!-- Script JS -->
-    <script>
-    // Navigation Dashboard
-    const navbarNavDashboard = document.querySelector(".navbar-nav-dashboard");
-    const hamburgerMenuDashboard = document.getElementById("hamburger-menu-dashboard");
-
-    hamburgerMenuDashboard.addEventListener("click", function(event) { 
-        event.preventDefault();
-        navbarNavDashboard.classList.toggle("active");
-
-    });
-
-    // Kalau di klik diluar itu, maka akan ketutup sendiri navigationnya
-    document.addEventListener("click", function(event) {
-        if(!hamburgerMenuDashboard.contains(event.target) && !navbarNavDashboard.contains(event.target)) {
-            navbarNavDashboard.classList.remove("active");
-        }
-    });
-    </script>
+    <!-- Hamburger Menu -->
+    <script src="js/hamburgerMenu/HamburgerMenuDashboard.js"></script>
 
     <!-- Preview Image -->
     <script>
@@ -115,5 +98,8 @@
 
     <!-- Fetch and update Data -->
     <script type="module" src="js/modules/DashboardUpdateSingleBlog.js"></script>
+
+    <!-- Logout -->
+    <script src="js/modules/Logout.js"></script>
 </body>
 </html>

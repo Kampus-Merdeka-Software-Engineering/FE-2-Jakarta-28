@@ -12,7 +12,7 @@ const setNewsData = async () => {
     news.slice(0,3).forEach( (singleNews) => {
         const formatedDate = formatDate(singleNews.published_date);
         latestPostContainer.innerHTML += `
-            <div class="post-card">
+            <div class="post-card pAtas">
                 <div class="image-post">
                     <img src="${singleNews.url}" alt="">
                 </div>
