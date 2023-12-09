@@ -19,7 +19,7 @@ const loadNewsAtTable = async () => {
                 <td data-cell="Published Date">${singleNews.published_date}</td>
                 <td data-cell="Content" class="down">${singleNews.content}</td>
                 <td data-cell="Action" class="down">
-                    <a class="update" onclick=" redirectToUpdateSingleNews('${singleNews.slug}')">Update</a>
+                    <a class="update" onclick="redirectToUpdateSingleNews('${singleNews.slug}')">Update</a>
                     <a class="delete" onclick="deleteBlog('${singleNews.slug}')">Delete</a>
                 </td>
             </tr>

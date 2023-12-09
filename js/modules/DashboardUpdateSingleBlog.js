@@ -52,16 +52,14 @@ dashboardUpdateContainer.addEventListener("submit", (event) => {
 const updateDatatoDatabse = async(formData, oldSlug) => {
     console.log(oldSlug, formData);
     try {
-        const response = await fetch(apiRoutes.newsBySlug(oldSlug), formData, {
+        const response = await fetch(apiRoutes.newsBySlug(oldSlug), {
             method: "PATCH", 
-            headers : {
-                "Content-Type" : "multipart/form-data"
-            },
+            body: formData
         });
         console.log(response);
         if(response.status === 200) {
             alert("The Blog has been updated successfully");
-            // window.location.href = 'dashboardBlog.html';
+            window.location.href = 'dashboardBlog.html';
         } else {
             alert("Failed Update Blog, Please check again");
         }

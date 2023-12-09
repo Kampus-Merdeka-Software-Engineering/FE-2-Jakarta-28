@@ -26,11 +26,9 @@ createForm.addEventListener("submit", (event) => {
 
 const createNewBlog = async(formData) => {
     try {
-        const response = await fetch(apiRoutes.news, formData,{
+        const response = await fetch(apiRoutes.news,{
             method: "POST",
-            headers: {
-                "Content-Type" : "multipart/form-data" 
-            },
+            body: formData
         });
         if(response.status === 200) {
             console.log(response);

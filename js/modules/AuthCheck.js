@@ -3,9 +3,6 @@ import apiRoutes from "../constant/ApiRoutes.js";
 document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch(apiRoutes.authenticationCheck, {
         method: "GET",
-        headers: {
-            "content-type" : "application/json"
-        },
     });
     
     if(response.status === 401 || response.status !== 200) {
