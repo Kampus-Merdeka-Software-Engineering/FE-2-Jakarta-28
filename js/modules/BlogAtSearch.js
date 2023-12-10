@@ -32,6 +32,7 @@ const filteredNews = async(keyword) => {
             const titleMatch = singleNews.title.toLowerCase().includes(keyword.toLowerCase());
             const contentMatch = singleNews.content.toLowerCase().includes(keyword.toLowerCase());
             const authorMatch = singleNews.author.toLowerCase().includes(keyword.toLowerCase());
+            const contentSlice = singleNews.content.slice(0, 120) + "...";
     
             if(titleMatch || contentMatch || authorMatch) {
                 const formatedDate = formatDate(singleNews.published_date);
@@ -44,7 +45,7 @@ const filteredNews = async(keyword) => {
                         <div class="content">
                             <h3>${singleNews.title}</h3>
                             <p class="subtext">${singleNews.author} - ${formatedDate}</p>
-                            <p class="post-content">${singleNews.content}</p>
+                            <p class="post-content">${contentSlice}</p>
                             <a onclick="redirectToSinglePost('${singleNews.slug}')"" class="read-more">Read More</a>
                         </div>
                     </div>
