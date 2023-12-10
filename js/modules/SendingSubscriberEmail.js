@@ -12,11 +12,11 @@ subscriberForm.addEventListener("submit", (event) => {
 const sendSubscriberEmail = (email) => {
     Email.send({
         Host : "smtp.elasticemail.com",
-        Username : "codeblogwebsite23@gmail.com",
-        Password : "CC1D9F451A54F5B3997796602A85CF8C4E28",
+        Username : "codeblogwebsite24@gmail.com",
+        Password : "436EFD3E0368EC91A39129C87A4F94AD580E",
         Port : 2525,
-        To : "codeblogwebsite23@gmail.com",
-        From : "codeblogwebsite23@gmail.com",
+        To : "codeblogwebsite24@gmail.com",
+        From : "codeblogwebsite24@gmail.com",
         Subject : "New Subscriber",
         Body : `Hello Mr/Mrs from CodeBlog, I am interested and happy to join your community. You can send new blog about Programming to my email address : ${email}`,
     }).then ( () => {

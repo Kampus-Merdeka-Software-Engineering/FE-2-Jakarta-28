@@ -37,11 +37,11 @@ function sendEmail () {
         // Konfigurasi email smtp untuk disend bersama attachment
         Email.send({
             Host : "smtp.elasticemail.com",
-            Username : "codeblogwebsite23@gmail.com",
-            Password : "CC1D9F451A54F5B3997796602A85CF8C4E28",
+            Username : "codeblogwebsite24@gmail.com",
+            Password : "436EFD3E0368EC91A39129C87A4F94AD580E",
             Port : 2525,
-            To : "codeblogwebsite23@gmail.com",
-            From : "codeblogwebsite23@gmail.com",
+            To : "codeblogwebsite24@gmail.com",
+            From : "codeblogwebsite24@gmail.com",
             Subject : "New Content About Programming Insight",
             Body : `Hello Mr/Mrs from CodeBlog, <br> <br> My name is ${full_name}. You can contact me at ${email} or you can chat with me at ${phone_number}. On this opportunity, I want to share a new insight about Programming. Hope this content can help a lot of people. <br> <br> The title of the content : ${title} <br> <br> The Content/Paragraph : <br> ${content} <br> <br> Here I also attach the image that can be use as an illustration. Thank You!`,
             Attachments: [{
