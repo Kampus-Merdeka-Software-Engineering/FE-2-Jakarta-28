@@ -1,4 +1,4 @@
-const baseApiUrl = "http://localhost:5000";
+const baseApiUrl = "https://be-2-jakarta-28-production.up.railway.app";
 
 const apiRoutes = {
     login : `${baseApiUrl}/login`,
