@@ -33,7 +33,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 10%;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -107,6 +107,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 5rem 10% 2rem;
+    margin-top: 6rem;
 }
 
 .hero .content h1{
@@ -971,7 +972,7 @@ footer .row .contact-us .content a p {
 
     footer .row {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));;
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     }
 }
 
