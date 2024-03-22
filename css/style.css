@@ -863,7 +863,7 @@ footer .row .contact-us .content a p {
         top: 100%;
         right: -100%;
         background-color: var(--bg);
-        width: 30rem;
+        width: 20rem;
         height: 100vh;
         transition: 0.3s;
     }
