@@ -773,47 +773,6 @@ footer .row .contact-us .content a p {
     color: var(--text);
     font-weight: 400;
 }
-
-/* Animation */
-/* Animasi kiri dan kanan */
-.pKiri, 
-.pKanan {
-    opacity: 0;
-    transform: translate(-100px, 0);
-    transition: 1s;
-}
-
-.pKanan{
-    transform: translate(100px, 0);
-}
-
-.pKiri.pMuncul, 
-.pKanan.pMuncul {
-    opacity: 1;
-    transform: translate(0, 0);
-}
-
-/* Animasi Atas dan bawah */
-.pAtas,
-.pBawah,
-.pBawah-choose-us {
-    opacity: 0;
-    transform: translateY(-100px);
-    transition: 1s;
-}
-
-.pBawah,
-.pBawah-choose-us {
-    transform: translateY(100px);
-}
-
-.pAtas.pMunculAB,
-.pBawah.pMunculAB,
-.pBawah-choose-us.pMunculAB {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Responsive Views */
 
 /* Super Extra Large */

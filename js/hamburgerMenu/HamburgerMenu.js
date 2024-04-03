@@ -8,33 +8,14 @@ hamburgerMenu.addEventListener("click", function(event) {
     navbarNav.classList.toggle("active");
 });
 
-// Animation kiri dan kanan
-window.addEventListener("load", () => {
-    const bagianKiri = document.querySelectorAll(".pKiri");
-    const bagianKanan = document.querySelectorAll(".pKanan");
-
-    bagianKiri.forEach((elementKiri) => {
-        elementKiri.classList.add("pMuncul");
-    })
-
-    bagianKanan.forEach((elementKanan) => {
-        elementKanan.classList.add("pMuncul");
-    })
+// Klik di luar sidebar untuk menghilangkan nav
+document.addEventListener("click", function (e) {
+    if (!hamburgerMenu.contains(e.target) && !navbarNav.contains(e.target)) {
+        navbarNav.classList.remove("active");
+    }
 });
 
-// Animation atas dan bawah
-window.addEventListener("load", () => {
-    const bagianAtas = document.querySelectorAll(".pAtas");
-    const bagianBawah = document.querySelectorAll(".pBawah");
 
-    bagianAtas.forEach((elementAtas) => {
-        elementAtas.classList.add("pMunculAB");
-    });
-
-    bagianBawah.forEach((elementBawah) => {
-        elementBawah.classList.add("pMunculAB");
-    });
-});
 
 
 
